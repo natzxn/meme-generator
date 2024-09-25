@@ -3,12 +3,23 @@ import memesData from "../memesData.js"
 
 function Meme() {
 
-    const [memeImage, setMemeImage] = useState("https://i.imgflip.com/3i7p.jpg");
+    //const [memeImage, setMemeImage] = useState("https://i.imgflip.com/3i7p.jpg");
+    const [meme, setMeme] = useState({
+      topText: "",
+      bottomText: "",
+      randomImage: "https://i.imgflip.com/3i7p.jpg"
+    })
+
+    const [allMemeImages, setAllMemeImages] = useState(memesData)
 
     const getMeme = () => {
-        const array = memesData.data.memes;
+        const array = allMemeImages.data.memes;
         const randomItem = array[Math.floor(Math.random() * array.length)]
-        setMemeImage(randomItem.url);
+        const url = randomItem.url;
+        setMeme(prevMeme => ({
+          ...prevMeme,
+          randomImage: url
+        }));
     }
 
 
@@ -19,11 +30,15 @@ function Meme() {
           <input type="text" className="form-input" placeholder="Hello" />
         </label>
         <label>Bottom Text
-          <input type="text" className="form-input" placeholder="World" />
+          <input type="text" className="form-input" placeholder="World" /> 
         </label>
         <button className="btn" onClick={getMeme}>Get a new meme image!</button>
       </div>
-      <img src={memeImage} alt="meme image" className="meme-img"/>
+      <div className="meme">
+        <img src={meme.randomImage} alt="meme image" className="meme-img"/>
+        <h2 className="meme-text"></h2>
+        <h2 className="meme-text"></h2>
+      </div>
     </main>
   );
 }
