@@ -10,12 +10,12 @@ body {
 }
 
 .app {
-  padding: 4rem 38rem;
+  padding: 4rem 37rem;
   background-color: #e4e9ba;
   height: 100vh;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1600px) {
   .app {
     padding: 4rem 18rem;
   }
@@ -113,9 +113,48 @@ label {
   flex-direction: column;
 }
 
+.meme {
+  margin-top: 4rem;
+  position: relative;
+  max-height: 100%; 
+}
+
 .meme-img {
   max-width: 100%;
   max-height: 70%; 
   display: block;
-  margin-top: 4rem;
+  
+}
+
+.meme-text {
+  position: absolute;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 15px 0;
+    padding: 0 5px;
+    font-family: impact, sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow:
+        2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        0 2px 0 #000,
+        2px 0 0 #000,
+        0 -2px 0 #000,
+        -2px 0 0 #000,
+        2px 2px 5px #000;
+}
+
+.top {
+  top: 0;
+}
+
+.bottom {
+  bottom: 30%;
 }
