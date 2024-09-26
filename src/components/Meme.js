@@ -10,10 +10,10 @@ function Meme() {
       randomImage: "https://i.imgflip.com/3i7p.jpg"
     })
 
-    const [allMemeImages, setAllMemeImages] = useState(memesData)
+    const [allMemes, setAllMemes] = useState(memesData)
 
     const getMeme = () => {
-        const array = allMemeImages.data.memes;
+        const array = allMemes.data.memes;
         const randomItem = array[Math.floor(Math.random() * array.length)]
         const url = randomItem.url;
         setMeme(prevMeme => ({
